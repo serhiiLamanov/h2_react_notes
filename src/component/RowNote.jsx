@@ -1,6 +1,7 @@
 import React from "react";
 import MaterialIconButton from "./MaterialIconButton";
 import CATEGORIES from "../CATEGORIES"
+import formatISOStringDate from "../utils/formatISOStringDate"
 
 export default function RowNote(props){
     const NOTE_ACTIONS = ["edit", "archive", "unarchive", "delete"]
@@ -11,7 +12,7 @@ export default function RowNote(props){
     return(
         <tr className={archived ? 'archived' : null}>
             <td>{name}</td>
-            <td>{created}</td>
+            <td>{formatISOStringDate(created)}</td>
             <td>{CATEGORIES[category]}</td>
             <td>{content}</td>
             <td>{dates}</td>

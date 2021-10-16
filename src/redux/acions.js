@@ -25,3 +25,20 @@ export function unarchiveNote(i){
         i
     }
 }
+export function createNote(){
+    return{
+        type:"CREATE_NOTE"
+    }
+}
+export function editNote(i){
+    return{
+        type:"EDIT_NOTE",
+        i
+    }
+}
+export function abortEditingNote(){
+    return{
+        type:"ABORT_EDITING_NOTE"
+    }
+}
+

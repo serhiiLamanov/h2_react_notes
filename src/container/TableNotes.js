@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import TableNotes from "../component/TableNotes";
-import { deleteNote, archiveNote, unarchiveNote } from "../redux/acions";
+import { deleteNote, archiveNote, unarchiveNote, editNote,createNote  } from "../redux/acions";
 
 
 const mapStateToProps = (state) => {
@@ -9,16 +9,14 @@ const mapStateToProps = (state) => {
     };
  };
  const mapDispatchToProps = (dispatch) => {
-    return {createNote: () => console.log('createNote'),
+    return {createNote: () => dispatch(createNote()),
         handler:{
-            editNote: (i) => console.log('editNote ',i),
+            editNote: (i) => dispatch(editNote(i)),
             archiveNote: (i) => dispatch(archiveNote(i)),
             unarchiveNote: (i) => dispatch(unarchiveNote(i)),
             deleteNote: (i) => dispatch(deleteNote(i)),
         }
-       
-        // reset: () => dispatch(reset())
-    };
+    }
  };
 
  export default connect(mapStateToProps, mapDispatchToProps)(TableNotes)

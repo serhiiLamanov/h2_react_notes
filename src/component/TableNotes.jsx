@@ -5,7 +5,7 @@ import RowNote from "./RowNote";
 export default function TableNotes(props){
     let [showArchived, useShowArchived] = useState(false)
     const useShowHideArhivedNotes = () => useShowArchived(showArchived = !showArchived)
-    // console.log(props.handler)
+    
     return(
         <table>
             <thead>

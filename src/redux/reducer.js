@@ -1,22 +1,27 @@
 const reducer = (state, action) =>{
-    console.log(action)
     switch(action.type){
         case "ADD_NOTE": 
             {let notes = state.notes.slice()
-            notes.push(action.note)
-            return {notes}}
+            state.editingNoteIndex === null ? notes.push(action.note) : notes[state.editingNoteIndex] = action.note
+            return {...state, notes, editingNoteIndex: null, isNoteEditing: false}}
         case "DELETE_NOTE": 
             {let notes = state.notes.slice()
             notes.splice(action.i, 1)
-            return {notes}}
+            return {...state, notes}}
         case "ARCHIVE_NOTE": 
             {let notes = state.notes.slice()
             notes[action.i].archived = true
-            return {notes}}
+            return {...state, notes}}
         case "UNARCHIVE_NOTE": 
             {let notes = state.notes.slice()
             notes[action.i].archived = false
-            return {notes}}
+            return {...state, notes}}
+        case "CREATE_NOTE":
+            return{...state, isNoteEditing: true}
+        case "EDIT_NOTE":
+            return{...state, editingNoteIndex: action.i, isNoteEditing: true}
+        case "ABORT_EDITING_NOTE":
+            return{...state, editingNoteIndex: null, isNoteEditing: false}
         default: return state
     }
 }

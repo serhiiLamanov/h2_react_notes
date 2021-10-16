@@ -11,4 +11,4 @@ const mapStateToProps = (state) => {
     };
  };
 
- export default connect(mapStateToProps, null)(TableCategoriesSummary)
+ export default connect(mapStateToProps)(TableCategoriesSummary)
