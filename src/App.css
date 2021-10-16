@@ -1,38 +1,110 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 .App {
-  text-align: center;
+  width: max-content;
+  position: relative;
+  margin: 1rem;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ 
+.App table{
+  border-spacing: 0 .5em;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App table thead th{
   color: white;
+  background-color: #999;
+  padding: .5em;
+}
+.App table tbody tr{
+  background-color: #e8eaf5;
+}
+.App table tbody tr.archived{
+  background-color: #ececec;
+  display: none;
+}
+.App table tbody.showArchived tr.archived{
+  background-color: #ececec;
+  display: table-row;
+}
+.App table tbody td{
+  border: none;
+  padding: .5em;
+  color: #666;
+}
+.App table tr td:first-child{
+  color: black;
 }
 
-.App-link {
-  color: #61dafb;
+.App thead th:first-child {
+  border-radius: .5em 0 0 .5em;
+}
+.App thead th:last-child {
+  border-radius: 0 .5em .5em 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.App table tfoot td{
+  text-align: right;
+}
+
+.App table thead button,
+.App table tbody button{
+  border: none;
+  color: inherit;
+  background-color: inherit;
+}
+.App table thead button:hover,
+.App table tbody button:hover,
+.App table thead button:active,
+.App table tbody button:active{
+  filter: brightness(60%);
+}
+
+.App table thead button:active,
+.App table tbody button:active {
+  outline: 1px solid #fff;
+  transform: scale(0.9);
+}
+
+.App table tbody button.unarchive-btn{
+  display: none;
+}
+.App table tbody tr.archived button.unarchive-btn{
+  display: inline;
+}
+.App table tbody tr.archived button.archive-btn{
+  display: none;
+}
+
+.App div.editorsBackdrop{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .6);
+}
+.App form input,
+.App form select{
+  padding: .5em;
+}
+.App form input[type="text"]{
+  min-width: 15em;
+}
+.App form input[name="content"]{
+  min-width: 40em;
+}
+.App form{
+  background-color: #e8eaf5;
+  padding: 1em;
+}
+.App form div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em 0;
+}
+.App form div:last-child>*{
+  flex-basis: 20%;
 }
